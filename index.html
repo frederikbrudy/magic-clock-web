@@ -1,0 +1,477 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  
+  <meta charset="utf-8">
+  
+  <!-- Import Open Sans and Lobster fonts from Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:300,400:latin', 'Lobster::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+
+  <!-- import lightbox (image display)   -->
+  <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/lightbox.js"></script>
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Magic Clock</title>
+  <meta name="description" content="Tutorial of building the Magic Clock">
+  <meta name="keywords" content="Tutorial, Magic Clock, Harry Potter, Weasley, family clock, documentation, micro controller, building">
+
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="https://browsehappy.com/">Upgrade to a different browser</a> or <a href="https://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<!--   HEADER .......................................................... -->
+  <header id="head">
+  
+  	<h1>Magic Clock</h1>
+  	<h2>A clock that displays people's locations</h2>
+
+  </header>
+
+
+<!--   MAIN CONTENT .......................................................... -->
+
+  <div role="main">
+	  
+	  
+	  
+	  
+	  
+	  
+	  <!-- top content area -->
+	  <div class="top_content center" id="video-container">
+
+          <iframe src="https://player.vimeo.com/video/46029320?byline=0&amp;portrait=0" width="658" height="370" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+          <!--<img id="video-placeholder" onclick="playVideo();" src="img/video-placeholder.png">-->
+		
+		  		  
+	  </div>
+	  
+	  	  <!-- content area -->
+      <div id="sticky-anchor"></div>
+	  <div class="sub_content_b small_padding" id="overview">
+		  <h2>Build your own Magic Clock. Code, hardware, tutorials are all here, all open source.</h2>
+		  <nav class="menu">
+              <ul class="singleline">
+                  <li class="space"><a href="#" rel="head">video</a> </li>
+                  <li class="space"><a href="#" rel="concept">concept</a> </li>
+                  <li class="space"><a href="#" rel="atmega">electronics</a> </li>
+                  <li class="space"><a href="#" rel="clock">clockwork</a> </li>
+                  <li class="space"><a href="#" rel="clockface">clockface</a> </li>
+                  <li class="space"><a href="#" rel="webserver">webserver</a> </li>
+                  <li class="space"><a href="#" rel="mobile">mobile</a> </li>
+                  <li class="space"><a href="#" rel="team">team</a> </li>
+              </ul>
+		  </nav>
+	  </div>
+	  
+	   <!-- content area -->
+	  <div class="sub_content" id="concept">
+		  <h3>Concept</h3>
+
+		  <p class="center">
+			  Clock hands = Persons<br/>
+			  Clock times = Locations<br/>
+			  <br/>
+			  
+		  </p>
+		  
+		  <div id="workflow" class="center">
+		  	<img src="img/workflow.png" width="500px" />
+		  </div>
+          
+		  <p>
+              The Magic Clock reveals the whereabouts of your closest friends and family. It
+              magically<a href="#" rel="mobile">*</a> knows where your loved ones are, so you can find them for fun or
+              know when better not to call.<br />
+              The position of your four friends is shown on an old grandfather clock, where the clock face has been changed to show different
+              locations. The clock hands indicate different friends, each pointing to his/her current location. <br />
+              The clock is driven by an <a href="#" rel="atmega">AtMega8</a> with a wifi module to receive the data. It
+              gets the data from a <a href="#" rel="webserver">webserver</a> which, in return, is regularly updated by
+              your friends' <a href="#" rel="mobile">Android and iPhone apps</a>.
+
+          </p>
+          <p>
+              <a href="https://github.com/kopfnuss" target="_blank" class="center">The full code for Android, iPhone, AtMega and server can be forked on github.</a>
+          </p>
+	  </div>
+	  
+	  <!-- content area -->
+	  <div class="sub_content_b" id="atmega">
+		  <h3>Electronics</h3>
+
+          The centerpiece of the clock is an atmega8 microcontroller, which controls four servomotors and four RGB LEDs
+          (one for each hand). An RX/TX wifi module, which connects to the internet, retrieves the server-data.<br />
+
+          <h4>Assembly diagram</h4>
+          <div class="center">
+          <a href="img/electronics/magicclock.de_assemly.jpg" rel="lightbox[magicclock]" title="Magic Clock assembly diagram">
+              <img src="img/electronics/magicclock.de_assemly.jpg" alt="Magic Clock Circuit diagram" id="lightbox_img"/>
+          </a>
+          </div>
+          As can be seen on the diagram all used parts were assembled on one single board, which offers a highly modular
+          layout. In case of damage it is possible to plug or unplug all peripheral devices like LEDs, servos, the wify
+          module or the microcontroller itself.<br />
+
+          We used 12 IRF 520 MOSFETS to make use of the full 12 volts power and get shiny, bright LEDs. The servos
+          however are directly connected to the microcontroller and controlled via PWM. We used several capacitors to
+          get a reliable and stable power supply, mainly for the servos and the wify module.
+          To get the several desired currents we used some 7805 voltage converters (5V) and one LD33V (3,3V).<br />
+
+          The board can be either set in the standard operation mode or in the configuration mode. The configuration
+          mode disables all standard outputs but allows connecting a pc via the RX/TX or ISP interface to maintain the
+          microcontroller or the wify module.<br />
+
+          <h4>Circuit Diagram</h4>
+          <div class="center">
+          <a href="img/electronics/magicclock.de_circuit.jpg" rel="lightbox[magicclock]" title="Magic Clock Circuit diagram">
+              <img src="img/electronics/magicclock.de_circuit.jpg" alt="Magic Clock Circuit diagram" id="lightbox_img"/>
+          </a>
+          </div>
+          The circuit diagram as it was finally soldered.<br />
+
+          <h4>Code</h4>
+          The code for the atmega8 microcontroller is written in C and is currently in a beta stadium. It sure can be
+          optimized concerning Performance and power consumption. Important features are the recognition of timeouts
+          and the two-way communication with the wify module.
+	  </div>
+	  
+	  <!-- content area -->
+	  <div class="sub_content" id="clock">
+		  <h3>Clockwork</h3>
+          <p>
+
+              At the beginning of our brainstorming we all dreamed about a wooden grandfather clock.
+              Our eager efforts to find a suitable one soon brought up lots of options. All priced well above 100 &euro;,
+              even the used ones on Ebay.<br />
+              Unfortunately our budget was very limited and so we had to drop our thoughts of building on an old
+              fashioned clock. We were making plans on creating our own modern design out of acrylic glass and were
+              somewhat unhappy about that. But thanks to a happy coincidence we found our perfect clock on Ebay Classifieds.
+              Just an hour after finding the clock online we had it in our car, hitting the road back to the workshop.<br />
+              In order to have the clock hands controlled by <a href="#" rel="webserver">magic</a> we had to remove the
+              entire clock unit and replace it with our own construction, made of acrylic glass. For the poles, which go from
+              the inside to the outside and to which the clock hands are connected, we used thin metal tubes. Watch the
+              animation below in order to understand what we did. <br />
+              The poles are turned by regular off-the-shelf servo motors with a turn range of 180 degrees. By using a
+              gear train we managed to cover the full range of the clock.
+              
+              <div class="center">
+                  <a href="img/clock/clock_car.jpg" rel="lightbox[magicclock]" title="A real find: out wooden clock just seconds after we bought it.">
+                  	<img src="img/clock/clock_car.jpg" alt="grandfather clock in our car" id="lightbox_img"/>
+                  </a>
+                  
+                  <a href="img/clock/clock_standing.jpg" rel="lightbox[magicclock]" title="The clock got home safely. Here we
+                    already removed the clock face and clock unit." >
+                    <img src="img/clock/clock_standing.jpg" alt="grandfather lock in our workshop" id="lightbox_img"/>
+                  </a>
+                  
+                  <a href="img/clock/clock_standing_clockface.jpg" rel="lightbox[magicclock]">
+                   <img src="img/clock/clock_standing_clockface.jpg"alt="grandfather clock in our workshop clockface close-up" id="lightbox_img"/>
+                   </a>
+              </div>
+          </p>
+          <p>
+              This animation shows how the hands of the Magic Clock will be moved. As you can see we use a gear train to
+              move the poles. This is necessary because the servo motors we used only move 90degrees in each direction,
+              so 180 degrees total. With a gear train of 2:1 we manage to double that range so the hands of the clock can
+              move from 1 o'clock all the way to 12 o'clock and back. <br />
+              The second animation was made by Cornelia Reithmeier and Claudius Böttcher as part of the pracitcal course 3D modeling with Blender" in the Summer of 2012.
+              <div class="center">
+                <object width="315" height="237"><param name="movie" value="https://www.youtube-nocookie.com/v/KbnjjbLmd-E?version=3&amp;hl=de_DE"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube-nocookie.com/v/KbnjjbLmd-E?version=3&amp;hl=de_DE" type="application/x-shockwave-flash" width="315" height="237" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+                <object width="315" height="237"><param name="movie" value="https://www.youtube-nocookie.com/v/yYNx0Pr5jPo?version=3&amp;hl=de_DE"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube-nocookie.com/v/yYNx0Pr5jPo?version=3&amp;hl=de_DE" type="application/x-shockwave-flash" width="315" height="237" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+              </div>
+          </p>
+	  </div>
+	  
+	  	  <!-- content area -->
+	  <div class="sub_content_b" id="clockface">
+		  <h3>Clockface</h3>
+		  
+		  <p>The clock shows two important things: persons and locations. Instead of the typical two- or three-handed clocks, we decided to upgrade and give a fourth hand to our clock. After all we are four guys on the team! Each of us is represented by a Lego man. To make it easier to stick the Lego heads onto the hands, we did a bit of grinding so that they were flat. <br/>
+		  After we got the numbers off the clock face (even though they looked pretty), we had to find a way to put our locations on it. Well, luckily we found a quite handy solution for this: the wall tattoo technique that you may know from Ikea. So we created an Adobe Illustrator file for all the words like "University", "Home" or "On the way" and printed them on black sticky foil using a laser cutter. What the laser cutter actually did was cutting the words out, so we had custom stickers. Pro tip: We mirrored the words first and printed on the back side of the foil which worked nicely for us in the end when we had to peel the words off.</p>
+		  
+		  <a href="img/clockface/lego1.jpg" rel="lightbox[magicclock]" title="Grinding">
+		  	<img src='img/clockface/lego1.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/lego2.jpg" rel="lightbox[magicclock]" title="Lego heads">
+		  	<img src='img/clockface/lego2.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/lego3.jpg" rel="lightbox[magicclock]" title="Lego heads">
+		  	<img src='img/clockface/lego3.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  
+		  
+		  <a href="img/clockface/clockface0.png" rel="lightbox[magicclock]" title="content of laser cutter file">
+		  	<img src='img/clockface/clockface0.png' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/clockface1.jpg" rel="lightbox[magicclock]" title="laser cutter">
+		  	<img src='img/clockface/clockface1.jpg' alt="magic clock" id="lightbox_img" >
+		  </a>
+		  <a href="img/clockface/clockface2.jpg" rel="lightbox[magicclock]" title="result of laster cutter">
+		  	<img src='img/clockface/clockface2.jpg' alt="magic clock" id="lightbox_img" >
+		  </a>
+		  <a href="img/clockface/clockface3.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface3.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <!--
+<a href="img/clockface/clockface4.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface4.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+-->
+		  <a href="img/clockface/clockface5.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface5.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/clockface6.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface6.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/clockface7.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface7.jpg' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/clockface/clockface8.jpg" rel="lightbox[magicclock]" title="">
+		  	<img src='img/clockface/clockface8.jpg' alt="magic clock" id="lightbox_img" >
+		  </a>
+
+	  </div>
+	  
+	  <!-- content area -->
+	  <div class="sub_content" id="webserver">
+		  <h3>Webserver</h3>
+		  <div class="center">
+                  <a href="http://grails.org/" title="Grails - The search is over">
+                  	<img src="img/server/grails_logo.png" alt="Grails logo"/>
+                  </a>
+                  <a href="http://groovy.codehaus.org/" title="Groovy - A dynamic language for the Java platform">
+                  	<img src="img/server/groovy_logo.png" alt="Groovy logo"/>
+                  </a>
+                  <a href="http://tomcat.apache.org/" title="Apache Tomcat">
+                  	<img src="img/server/tomcat_logo.gif" alt="Tomcat logo"/>
+                  </a>
+                  <a href="http://www.mysql.de/" title="MySQL">
+                  	<img src="img/server/mysql_logo.png" alt="MySQL logo"/>
+                  </a>
+                  
+
+      </div>
+
+		  <p>The webserver is built using groovy/grails, apache tomcat and mysql. It receives updates from the <a href="#" rel="#mobile">mobile clients</a> via a REST interface like this:<br/> 
+		  <pre>
+	<code>{server-url}/rest/updateLocation?key=John&lon=-67.27478&lat=-55.975335&ans=xml</code>
+		  </pre>
+		  The server responds with an xml-answer with a status code. This way, the client is able to verify the correct update. The response looks like this:
+		  <pre>
+		  <code>
+	&lt;updateLocation 
+		msg="Location updated successfully." 
+		locationOld="unterwegs" 	
+		locationNew="chillen.enggarten" 
+		status="0"
+	/&gt;
+		  </code>
+		  </pre>
+		  
+		  After successully calling <code>rest/updateLocation</code> the server identifies the corresponding user by 
+		  its <code>key</code> and looks for a free clock hand and color. If updates are enabled for this user and
+		  there is a clock hand and color available, both are assigned to the user.<br/>
+		  To show the informations on the clock, it calls the server via
+		  <pre>
+	<code>{server-url}/rest/getData</code>
+		  </pre>
+		  ... and gets an answer like:
+		  <pre>
+	<code>{00:07|04:11|02:02|03:02}</code>
+		  </pre>
+		  
+		  The clock mapps the codes to colors and clock hands and sends corresponding signals to the servos.<br/>
+		    
+		  
+		  The interface looks like this:
+		  </p>
+		  <div class="center">
+                  <a href="img/server/userlist.png" rel="lightbox[magicclock]" title="The users are listed in a table that shows all relevant information.">
+                  	<img src="img/server/userlist.png" alt="User List" id="lightbox_img"/>
+                  </a>
+                  
+                  <a href="img/server/updatehistory.png" rel="lightbox[magicclock]" title="The location-updates via /rest/updateLocation are listed and shown on google maps for information and debugging purposes." >
+                    <img src="img/server/updatehistory.png" alt="Update History" id="lightbox_img"/>
+                  </a>
+                  
+                  <a href="img/server/locations.png" rel="lightbox[magicclock]" title="The locations are encoded via four bounding geographic coordinates. All points contained by those four coordinates belong to the location.">
+                   <img src="img/server/locations.png"alt="Location" id="lightbox_img"/>
+                   </a>
+                   
+                   <a href="img/server/communication.png" rel="lightbox[magicclock]" title="The server comminicates with the clock via these codes.">
+                   <img src="img/server/communication.png"alt="Server-Clock communication" id="lightbox_img"/>
+                   </a>
+    </div>
+    What calls are available, what answers are returned and what the codes mean is specified in the <a href="files/MagicClock-REST-spec.pdf">REST-interface-specification</a>. If you want to set up your own server see README.txt in the root-directory of the server code. 
+		  If you have any problems or questions feel free to <a href="mailto:authors@magicclock.de">contact us</a>.<br/>
+	  </div>
+	  
+	  <!-- content area -->
+	  <div class="sub_content_b" id="mobile">
+		  <h3>Mobile Clients</h3>
+		  <p>
+              Obviously, the Magic Clock magically knows the the persons' locations. Just to have a backup though, we
+              built mobile clients that can send their current location to the webserver and thus to the Magic Clock.
+              There is an Android app and an iPhone app, both of which contain the same core functionality. The Android
+              app runs as a service in the background and updates your location in a timed interval, whereas the iPhone
+              app sends its location whenever the device registers to a new cell tower. On Android your location is
+              always up-to-date and accurate. On your iPhone you can also send super-accurate and super-frequent updates
+              by simply keeping the app open and running.<br />
+              Both applications also support sending destined locations, either for testing purposes or just to clarify
+              your whereabouts when your phone's location isn't so super-accurate after all ;-)
+          </p>
+		  <p class="">
+              iPhone App
+		  <a href="img/mobile/iphone1.png" rel="lightbox[magicclock]" title="Magic Clock iPhone App">
+		  	<img src='img/mobile/iphone1.png' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/mobile/iphone2.png" rel="lightbox[magicclock]" title="Magic Clock iPhone App">
+		  	<img src='img/mobile/iphone2.png' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/mobile/iphone4.png" rel="lightbox[magicclock]" title="Magic Clock iPhone App">
+		  	<img src='img/mobile/iphone4.png' alt="magic clock" id="lightbox_img">
+		  </a>
+		  <a href="img/mobile/iphone3.png" rel="lightbox[magicclock]" title="Magic Clock iPhone App">
+		  	<img src='img/mobile/iphone3.png' alt="magic clock" id="lightbox_img">
+		  </a>
+          </p>
+          
+          <p class="">
+              Android App
+          <a href="img/mobile/magicclock_android_app.png" rel="lightbox[magicclock]" title="Magic Clock Android App">
+              <img src='img/mobile/magicclock_android_app.png' alt="magic clock" id="lightbox_img">
+          </a>
+          <a href="img/mobile/magicclock_android_app_running.png" rel="lightbox[magicclock]" title="Magic Clock Android App after starting the location service">
+              <img src='img/mobile/magicclock_android_app_running.png' alt="magic clock" id="lightbox_img">
+          </a>
+          <a href="img/mobile/magicclock_android_app_notification.png" rel="lightbox[magicclock]" title="Magic Clock Android App sticky notification">
+              <img src='img/mobile/magicclock_android_app_notification.png' alt="magic clock" id="lightbox_img">
+          </a>
+          <a href="img/mobile/magicclock_android_app_fake_location.png" rel="lightbox[magicclock]" title="Of course you can send fake locations for testing or clearification.">
+              <img src='img/mobile/magicclock_android_app_fake_location.png' alt="magic clock" id="lightbox_img">
+          </a>
+          <a href="img/mobile/magicclock_android_app_icon.png" rel="lightbox[magicclock]" title="The beautiful app icon.">
+              <img src='img/mobile/magicclock_android_app_icon.png' alt="magic clock" id="lightbox_img">
+          </a>
+          </p>
+
+	  </div>
+
+      <!-- content area -->
+      <div class="sub_content" id="team">
+          <h3>The Makers</h3>
+          <p>We're four Media Informatics students from the <a href="http://www.uni-muenchen.de" target="_blank">University of Munich</a>. We built this clock as part of our <a href="http://www.medien.ifi.lmu.de/lehre/ss12/bio/" target="_blank">Building Interactive Objects course</a>. </p>
+          <p>Frederik Brudy, Fabius Steinberger, Felix Praschak, Claudius B&ouml;ttcher</p>
+          <img src="img/makers/beers.jpg"  id="makers">
+          <!--
+
+                    <div>
+                    <img src="img/makers/frederik.png"><img src="img/makers/Claudius.png"><img src="img/makers/felix.png"><img src="img/makers/fabius.png">
+                    </div>
+          -->
+
+      </div>
+
+
+      <!-- content area -->
+      <div class="sub_content_b" id="related">
+          <h3>Related Projects</h3>
+          <p>There are other projects who build a magic clock. They will be listed here as we get to know them:</p>
+          <ul>
+              <li>Microsoft Research's <a href="http://research.microsoft.com/en-us/groups/sds/whereabouts_clock.aspx" target="_blank">Whereabouts Clock</a> (published on CHI 2006)</li>
+              <li><a href="https://sites.google.com/site/whereaboutssite/build-log/movement" target="_blank">The Magic Clock</a></li>
+              <li>... your project? Could be here. <a href="mailto:authors@magicclock.de">Drop us a line</a></li>
+          </ul>
+      </div>
+	  
+  </div>
+
+
+<!--   FOOTER .......................................................... -->
+  <footer>
+  <div>
+      <ul class="singleline">
+          <li class="space">
+              <a href="http://www.medien.ifi.lmu.de/lehre/ss12/bio/" target="_blank">BIO at LMU</a>
+          </li>
+          <li class="space">
+              <a href="http://www.bio12-team3.tumblr.com" target="_blank">Blog</a>
+          </li>
+          <li class="space">
+              <a href="mailto:authors@magicclock.de">Contact us</a>
+          </li>
+      </ul>
+  </div>
+  <div id="madeWithLove">Made with &hearts; in Munich (2012)</div>
+  <div id="imprint">MagicClock. A project by Frederik Brudy, Fabius Steinberger, Felix Praschak, Claudius B&ouml;ttcher. Institut f&uuml;r Informatik, LFE Medieninformatik, Amalienstra&szlig;e 17, 80333 M&uuml;nchen</div>
+  </footer>
+
+  <a href="https://github.com/kopfnuss" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts -->
+
+  <!-- Piwik -->
+  <script type="text/javascript">
+      var pkBaseURL = (("https:" == document.location.protocol) ? "https://p.libru.de/" : "http://p.libru.de/");
+      document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+      try {
+          var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 5);
+          piwikTracker.trackPageView();
+          piwikTracker.enableLinkTracking();
+      } catch( err ) {}
+  </script><noscript><p><img src="http://p.libru.de/piwik.php?idsite=5" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+</body>
+</html>
